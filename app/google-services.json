@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "977346393902",
+    "project_id": "firebse-on-android",
+    "storage_bucket": "firebse-on-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:977346393902:android:7cfcac9c2547b1454cecbf",
+        "android_client_info": {
+          "package_name": "com.savaliscodes.firebaseonandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "977346393902-0n7c6085aa9pt620ooag1m15g8q8hirs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4Gy7xIs_I4-HcF0GiA0v4FmqLqg2Nb-w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "977346393902-0n7c6085aa9pt620ooag1m15g8q8hirs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
