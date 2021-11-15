@@ -24,7 +24,8 @@ class Login : AppCompatActivity() {
         val btnSignIn = findViewById<Button>(R.id.signIn)
         btnSignIn.setOnClickListener {
             val providers = arrayListOf(
-               AuthUI.IdpConfig.EmailBuilder().build()
+               AuthUI.IdpConfig.EmailBuilder().build(),
+                AuthUI.IdpConfig.GoogleBuilder().build()
             )
             startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder()
                 .setAvailableProviders(providers)
