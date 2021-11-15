@@ -32,7 +32,7 @@ class Login : AppCompatActivity() {
                 .setIsSmartLockEnabled(!BuildConfig.DEBUG, true)
                 .build(), RC_SIGN_IN)
         }
-    }
+    }//run
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
