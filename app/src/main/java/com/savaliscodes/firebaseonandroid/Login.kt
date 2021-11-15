@@ -29,6 +29,7 @@ class Login : AppCompatActivity() {
             )
             startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder()
                 .setAvailableProviders(providers)
+                .setIsSmartLockEnabled(!BuildConfig.DEBUG, true)
                 .build(), RC_SIGN_IN)
         }
     }
