@@ -49,9 +49,9 @@ class Login : AppCompatActivity() {
 
         }
     }
-
+//d
     companion object {
         const val USER_ID = "user_id"
         const val RC_SIGN_IN = 15
-    }//123
+    }
 }
