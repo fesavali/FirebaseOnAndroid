@@ -25,7 +25,8 @@ class Login : AppCompatActivity() {
         btnSignIn.setOnClickListener {
             val providers = arrayListOf(
                AuthUI.IdpConfig.EmailBuilder().build(),
-                AuthUI.IdpConfig.GoogleBuilder().build()
+                AuthUI.IdpConfig.GoogleBuilder().build(),
+                AuthUI.IdpConfig.PhoneBuilder().build()
             )
             startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder()
                 .setAvailableProviders(providers)
@@ -49,7 +50,7 @@ class Login : AppCompatActivity() {
 
         }
     }
-//d
+
     companion object {
         const val USER_ID = "user_id"
         const val RC_SIGN_IN = 15
