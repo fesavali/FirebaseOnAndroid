@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 
 class AnonymousUser : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,5 +17,9 @@ class AnonymousUser : AppCompatActivity() {
         val userMsg:String = intent.getStringExtra("signIn_message").toString()
 
         Toast.makeText(this, userMsg, Toast.LENGTH_SHORT).show()
+    }
+    override fun onBackPressed() {
+        val auth1 = FirebaseAuth.getInstance()
+        auth1.signOut()
     }
 }
