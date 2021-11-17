@@ -60,8 +60,14 @@ class Login : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        setResult(Activity.RESULT_CANCELED)
-        finish()
+        AuthUI.getInstance().signOut(this)
+            .addOnCompleteListener { task->
+                if(task.isSuccessful){
+                    startActivity(Intent(this,Login::class.java))
+                }else{
+                    Toast.makeText(this, "Logout Process Failed. Try again", Toast.LENGTH_SHORT).show()
+                }
+            }
     }
 
     private fun loadListActivity() {
@@ -92,4 +98,5 @@ class Login : AppCompatActivity() {
         const val RC_SIGN_IN = 15
         const val SIGN_MESSAGE = "signIn_message"
     }
+
 }
