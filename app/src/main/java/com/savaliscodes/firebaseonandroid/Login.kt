@@ -16,7 +16,7 @@ class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
+        val tvSignIn = findViewById<TextView>(R.id.tvMessage)
         val countries = ArrayList<String>()
         countries.add("KE")
         countries.add("US")
@@ -24,12 +24,7 @@ class Login : AppCompatActivity() {
         countries.add("UGA")
         val auth = FirebaseAuth.getInstance()
         val btnAnon = findViewById<Button>(R.id.Anon_sign)
-        val tvSignIn = findViewById<TextView>(R.id.tvMessage)
-        if(auth.currentUser != null && !auth.currentUser!!.isAnonymous){
-            val intent =  Intent(this, MainActivity::class.java)
-            intent.putExtra(USER_ID, auth.currentUser!!.uid)
-            startActivity(intent)
-        }
+
         //other sign in options
         val btnSignIn = findViewById<Button>(R.id.signIn)
         btnSignIn.setOnClickListener {
