@@ -3,8 +3,11 @@ package com.savaliscodes.firebaseonandroid
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.firebase.ui.auth.AuthUI
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.ktx.Firebase
 import com.savaliscodes.firebaseonandroid.Login.Companion.SIGN_MESSAGE
@@ -14,6 +17,38 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val authUi = AuthUI.getInstance()
+        val del = findViewById<Button>(R.id.btnDelete)
+        val out = findViewById<Button>(R.id.btnLogout)
+
+        out.setOnClickListener {
+            authUi
+                .signOut(this)
+                .addOnCompleteListener { task->
+                    if(task.isSuccessful){
+                        startActivity(Intent(this,Login::class.java))
+                    }else{
+                        Toast.makeText(this, "Logout Process Failed. Try again", Toast.LENGTH_SHORT).show()
+                    }
+                }
+        }
+        del.setOnClickListener {
+            MaterialAlertDialogBuilder(this)
+                .setTitle("Delete This Account")
+                .setMessage("This is Permanent. Are you Sure?")
+                .setPositiveButton("Yes"){_,_ ->
+                    authUi.delete(this)
+                        .addOnCompleteListener { task->
+                            if (task.isSuccessful){
+                                startActivity(Intent(this,Login::class.java))
+                            }else{
+                                Toast.makeText(this, "Account Delete Failed. Try again", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                }
+                .setNegativeButton("No", null)
+                .show()
+        }
 
         //check if user is logged in
         val auth: FirebaseAuth = FirebaseAuth.getInstance()
@@ -38,13 +73,21 @@ class MainActivity : AppCompatActivity() {
 
         tvID.text = userID
     }
-companion object{
+
+
+    companion object{
     const val ATTEMPT_SIGN = 10
     const val SIGN_MESSAGE = "signIn_message"
 }
 
     override fun onBackPressed() {
-        val auth1 = FirebaseAuth.getInstance()
-       auth1.signOut()
+        AuthUI.getInstance().signOut(this)
+            .addOnCompleteListener { task->
+                if(task.isSuccessful){
+                    startActivity(Intent(this,Login::class.java))
+                }else{
+                    Toast.makeText(this, "Logout Process Failed. Try again", Toast.LENGTH_SHORT).show()
+                }
     }
+}
 }
