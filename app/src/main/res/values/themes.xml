@@ -14,4 +14,9 @@
         <item name="android:windowBackground">@drawable/background</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="SigninTheme" parent="FirebaseUI">
+        <item name="android:windowBackground">@drawable/background</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
+    </style>
 </resources>
