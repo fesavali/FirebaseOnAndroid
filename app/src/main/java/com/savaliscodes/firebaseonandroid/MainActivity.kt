@@ -9,8 +9,7 @@ import android.widget.Toast
 import com.firebase.ui.auth.AuthUI
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.ktx.Firebase
-import com.savaliscodes.firebaseonandroid.Login.Companion.SIGN_MESSAGE
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -76,7 +75,6 @@ class MainActivity : AppCompatActivity() {
 
 
     companion object{
-    const val ATTEMPT_SIGN = 10
     const val SIGN_MESSAGE = "signIn_message"
 }
 
