@@ -65,7 +65,7 @@ class Login : AppCompatActivity() {
     }
 
     private fun loadListActivity() {
-        val user = FirebaseAuth.getInstance().currentUser
+
         val intent = Intent(this, AnonymousUser::class.java)
         intent.putExtra(SIGN_MESSAGE, "signIn to view this page")
         startActivity(intent)
