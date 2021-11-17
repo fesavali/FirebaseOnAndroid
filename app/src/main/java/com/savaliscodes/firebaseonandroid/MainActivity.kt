@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.ktx.Firebase
 import com.savaliscodes.firebaseonandroid.Login.Companion.SIGN_MESSAGE
 
 class MainActivity : AppCompatActivity() {
@@ -15,16 +16,15 @@ class MainActivity : AppCompatActivity() {
 
 
         //check if user is logged in
-        val user = FirebaseAuth.getInstance().currentUser
-        if(user == null || user.isAnonymous){
-            val intent =  Intent(this, AnonymousUser::class.java)
-            intent.putExtra(SIGN_MESSAGE, "signIn to view this page")
+        val auth: FirebaseAuth = FirebaseAuth.getInstance()
+        if(auth.currentUser == null || auth.currentUser!!.isAnonymous){
+            val intent =  Intent(this, Login::class.java)
+            intent.putExtra(SIGN_MESSAGE, auth.currentUser!!.uid)
             startActivity(intent)
         }
 
 
         //implement firebase auth
-        val auth = FirebaseAuth.getInstance()
         val userID:String = intent.getStringExtra("user_id").toString()
         if(userID != null){
             val tvUser = findViewById<TextView>(R.id.user)
@@ -40,6 +40,11 @@ class MainActivity : AppCompatActivity() {
     }
 companion object{
     const val ATTEMPT_SIGN = 10
+    const val SIGN_MESSAGE = "signIn_message"
 }
 
+    override fun onBackPressed() {
+        val auth1 = FirebaseAuth.getInstance()
+       auth1.signOut()
+    }
 }
