@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:text="@string/firebase_auth"
+        android:textColor="#424242"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,6 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/sign_in_anonymously"
+        android:textColor="#424242"
         app:layout_constraintEnd_toEndOf="@+id/signIn"
         app:layout_constraintStart_toStartOf="@+id/signIn"
         app:layout_constraintTop_toBottomOf="@+id/signIn" />
