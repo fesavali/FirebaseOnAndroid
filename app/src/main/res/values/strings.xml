@@ -7,4 +7,6 @@
     <string name="sign_in_anonymously">Sign In Anonymously</string>
     <string name="sign_in_to_see_this">Sign In to Get Started</string>
     <string name="this_is_an_anonymous_account">This Is An Anonymous Account</string>
+    <string name="log_out">Log Out</string>
+    <string name="delete_account">Delete Account</string>
 </resources>
